@@ -65,7 +65,11 @@ app.post('/login',(req,res)=>{
         if(user){
                 User.comparePassword(password,user.password,(err,isMatch)=>{
                 if(err)throw err;
-                
+                User.getUserByEmail(email,(err,result)=>{
+                    if(err)throw err;
+                })
+                console.log(user._id);
+                req.session.value=user._id;
                 req.session.user=user;
                 req.session.email=email;
                 req.flash('message',`Welcome ${user.firstName} ${user.lastName}`);
@@ -89,7 +93,7 @@ app.post("/register",uploads,(req,res)=>{
        newuser.email=email;
        newuser.phone=phone;
        newuser.password=password;
-       newuser.image=req.file.filename;
+       newuser.image='image-1603183764252.png';
       User.createUser(newuser,(err,user)=>{
           if(err)throw err;
           console.log(user);
@@ -101,7 +105,42 @@ app.post("/register",uploads,(req,res)=>{
         res.redirect('/');
     }
 })
-
+app.get('/edit',(req,res)=>{
+    if(req.session.user){
+    res.render('edit');}
+    else{
+        res.redirect('/');
+    }
+})
+app.post('/edit',uploads,(req,res,next)=>{ 
+    var id=req.session.value;
+    console.log(req.body.firstName);
+    if(req.file){
+        User.findByIdAndUpdate(id,{firstName:req.body.firstName,lastName:req.body.lastName
+            ,phone:req.body.phone,email:req.body.email,image:req.file.filename},function(err,result){
+            if(err){
+                res.send(err);
+            }
+            else{
+                console.log("Updated successfully",result)
+                res.redirect('user');
+            }
+        });
+    }
+    else{
+        User.findByIdAndUpdate(id,{firstName:req.body.firstName,lastName:req.body.lastName
+            ,phone:req.body.phone,email:req.body.email},function(err,result){
+            if(err){
+                res.send(err);
+            }
+            else{
+                console.log("Updated successfully",result)
+                res.redirect('user');
+            }
+        });
+    }
+    next;
+})
 
 app.get('/logout',(req,res)=>{
     req.session.destroy();
@@ -109,8 +148,17 @@ app.get('/logout',(req,res)=>{
 })
 
 app.get('/profile',(req,res)=>{
+    id=req.session.value;
     if(req.session.user){
-    res.render('profile',{message:req.flash('message')});
+      var datavalue =User.findById(id,(err,result)=>{
+            if(err)throw err
+            res.render('profile',{message:req.flash('message'),imageData1:result.image
+            ,firstName:result.firstName
+            ,lastName:result.lastName
+            ,phone:result.phone
+            ,email:result.email
+        });
+        })
     }
     else{
         res.redirect('/');
@@ -124,7 +172,8 @@ app.get('/user',(req,res)=>{
         res.redirect('/');
     }
 })
-app.post('/output',(req,res)=>{console.log(req.body.LinkData);
+app.post('/output',(req,res)=>{
+    console.log(req.body.LinkData);
 let options={
     mode:'text',
     pythonPath:'C:/Users/rawab/Downloads/Python/python.exe',

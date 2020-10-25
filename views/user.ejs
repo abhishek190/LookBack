@@ -16,15 +16,12 @@ svg rect{
 }
   </style>
 
-<script type="text/javascript" async
-src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<script type="text/javascript" src="//sta.codeforces.com/s/81719/js/prettify/prettify.js"></script>
+
 <!--JQUERY-->
   <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
   <script>
-    MathJax = {
+    MathJax.Hub.Quese={
       tex: {
         inlineMath: [['$$$', '$$$'], ['\\(', '\\)']],
         displayMath: [['$','$'],["\\[","\\]"]],
@@ -35,6 +32,10 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
       }
     };
     </script>
+<script type="text/javascript" async
+src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/javascript" src="//sta.codeforces.com/s/81719/js/prettify/prettify.js"></script>
     <script>   
      $(document).ready(function(){
        $(".show").hide()
@@ -169,6 +170,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
       e.preventDefault();
       e.stopPropagation();
       var LinkData = $('.LinkBox').val();
+      if(LinkData){
         $.ajax({
           url:'/output',
           data: {LinkData:LinkData,page:'PostLink'},
@@ -203,9 +205,10 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
             $('.out').text(res[0]);
             for(let i=1;i<=7;i++){
             $('#ques').append(res[i]+'<br>');}
-            //MathJax.Hub.Queue(["Typeset",MathJax.Hub,"ques"]);
+            MathJax.Hub.Queue(["Typeset",MathJax.Hub  ,"ques"]);
           }
         })
+      }*
     })
     $('.Submit').click(function(e){
         var note=document.getElementById("comment").value;
@@ -251,7 +254,6 @@ function closeNav() {
   document.body.style.backgroundColor = "white";
 }
 </script>
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 <!--
 <script>

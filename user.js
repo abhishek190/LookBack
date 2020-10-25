@@ -9,7 +9,10 @@ var userSchema=new mongoose.Schema({
     email:String,
     phone:String,
     password:String,
-    image:String
+    image:{
+        type:String,
+        default:"image-1603183764252.png"
+    }
 });
 var User=module.exports=mongoose.model('User',userSchema);
 module.exports.getUserById=function(id,callback){
