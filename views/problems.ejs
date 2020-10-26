@@ -66,7 +66,6 @@
 
         $(".ascending").click(function(e){
             e.preventDefault();
-            e.stopPropagation();
             $.ajax({
                 url:'/filter',
                 method:"POST",
@@ -89,7 +88,6 @@
         })
         $(".descending").click(function(e){
             e.preventDefault();
-            e.stopPropagation();
             $.ajax({
                 url:'/filter',
                 method:"POST",
@@ -116,20 +114,22 @@
 </head>
 
 <body>
-
+    <%- include ('NavBarTemplate');  %>
+    
 <div class="jumbotron">
+    
     <div class="Problems">
-    <div class="dropdown filter">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          filter
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item ascending" href="#" >rating ascending</a>
-          <a class="dropdown-item descending" href="#" >rating descending</a>
-        </div>
-      </div>
+        <div class="dropdown filter">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              filter
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item ascending" href="#" >rating ascending</a>
+              <a class="dropdown-item descending" href="#" >rating descending</a>
+            </div>
+          </div>
       <div>
-    <table  class="table table-dark "  id="tableId">
+        <table  class="table table-dark "  id="tableId">
             <tr>
                 <th scope="col">Index</th>
                 <th scope="col">Problem</th>
@@ -137,7 +137,7 @@
             </tr>
             <tbody class="QuesTable">
             </tbody>
-    </table>
+        </table>
    </div>
 </div>
 <div class="addProblems">
@@ -148,19 +148,7 @@
 
 
 
-<script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    }
-    
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("main").style.marginLeft= "0";
-      document.body.style.backgroundColor = "white";
-    }
-</script>
+
 
 <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

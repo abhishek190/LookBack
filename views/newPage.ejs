@@ -9,6 +9,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/newPage.css"> 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/css/user.css">
 <script>
     MathJax = {
       tex: {
@@ -55,29 +57,21 @@ src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
                result.rating+"<br>",result.note+"<br>");
          }
        })
-    })
+        });
 </script>
+
 </head>
 <body>
+  <%- include ('NavBarTemplate');  %>
     <div class="jumbotron">
         <div class="container">
         <p id="quest" style="text-align: center;"></p>
     </div>
     </div>
- 
-<script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "250px";
-      document.getElementById("main").style.marginLeft = "250px";
-      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    }
-    
-    function closeNav() {
-      document.getElementById("mySidenav").style.width = "0";
-      document.getElementById("main").style.marginLeft= "0";
-      document.body.style.backgroundColor = "white";
-    }
-    </script>
+    <div>
+      <input type="text" placeholder="Add Notes">
+      <button type="button" class="Notes" >Submit</button>
+    </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 </body>

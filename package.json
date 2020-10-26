@@ -29,6 +29,7 @@
     "nodemon": "^2.0.4",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
-    "python-shell": "^2.0.2"
+    "python-shell": "^2.0.2",
+    "node": "12.18.3"
   }
 }

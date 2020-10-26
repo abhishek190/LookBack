@@ -16,7 +16,7 @@ const fs=require("fs");
 const {PythonShell} =require('python-shell');
 var UserData=require("../ejs-intro/userData");
 const { db } = require("../ejs-intro/user");
-
+const PORT=process.env.PORT||8000
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -78,6 +78,9 @@ app.post('/login',(req,res)=>{
         }
         
     })
+})
+app.get('/NavBar',(req,res)=>{
+    res.render("NavBarTemplate");
 })
 app.post("/register",uploads,(req,res)=>{
     var password=req.body.password;
@@ -275,6 +278,6 @@ app.post('/byId',(req,res)=>{
         res.send(result).json;
     });
 })
-app.listen(8000,(req,res)=>{
+app.listen(PORT,(req,res)=>{
     console.log("heard on 8000");   
 })
