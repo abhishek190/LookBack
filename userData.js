@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-var url="mongodb://localhost:27017/mydb";
+var url="mongodb+srv://abhishek190:Jamesss@007@cluster0.iidxh.mongodb.net/mydb?retryWrites=true&w=majority";
 mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true});
 var db=mongoose.connection;
 
