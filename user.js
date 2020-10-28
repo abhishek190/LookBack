@@ -1,6 +1,6 @@
 const mongoose=require("mongoose");
 var bcrypt=require('./bcrypt.js-master/bcrypt.js-master/dist/bcrypt.js');
-var url=process.env.MONGODB_URI; 
+var url=process.env.MONGODB_URI||"mongodb://localhost:27017/mydb"; 
 mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true});
 var db=mongoose.connection;
 var userSchema=new mongoose.Schema({

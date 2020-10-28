@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-var url=process.env.MONGODB_URI
+var url=process.env.MONGODB_URI||"mongodb://localhost:27017/mydb";
 mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true});
 var db=mongoose.connection;
 
