@@ -1,5 +1,5 @@
 const mongoose=require("mongoose");
-var bcrypt=require('bcryptjs');
+var bcrypt=require('./bcrypt.js-master/bcrypt.js-master/dist/bcrypt.js');
 var url="mongodb+srv://abhishek190:Jamesss@007@cluster0.iidxh.mongodb.net/mydb?retryWrites=true&w=majority";
 mongoose.connect(url,{ useNewUrlParser: true, useUnifiedTopology: true});
 var db=mongoose.connection;
