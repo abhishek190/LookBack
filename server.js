@@ -7,15 +7,15 @@ var app=express();
 var passport=require("passport");
 var LocalStrategy=require('passport-local').Strategy;
 const { DH_NOT_SUITABLE_GENERATOR } = require("constants");
-var User=require("../ejs-intro/user");
+var User=require("./user");
 var bcrypt=require('bcryptjs');
 const flash=require("connect-flash");
 var session=require('express-session');
 const multer=require('multer');
 const fs=require("fs");
 const {PythonShell} =require('python-shell');
-var UserData=require("../ejs-intro/userData");
-const { db } = require("../ejs-intro/user");
+var UserData=require("./userData");
+const { db } = require("./user");
 const PORT=process.env.PORT||8000
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
