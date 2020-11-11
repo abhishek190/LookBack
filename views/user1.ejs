@@ -180,7 +180,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
        $(".rating").css("display","none");
        $('.container').on('keypress',function(e){
            if(e.which==13){
-            $(".form-data").hide(); 
+            $(".form-data").css("display","none");
            }
        })
      // $('.fetch').click(function(){
@@ -196,10 +196,6 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
 </script>
     </head>
     <body>
-
-
-
-  <!-- ======= Header ======= -->
     <section class="canvas-wrap" style="z-index: -1;">
             
     <div id="canvas" class="gradient" style="top:0; position: fixed;">
@@ -212,12 +208,10 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
     <a href="#" class="back-to-top"><i class="icofont-simple-up"></i></a>
   </div>
   
-  
-  
-  
       <!--Rating-->
-      <div class="rating" style="box-shadow: -5px -5px 30px 5px red, 5px 5px 30px 5px blue; margin:0%;
-      position: absolute;
+      <div class="rating" style="box-shadow: -5px -5px 30px 5px red, 5px 5px 30px 5px blue;    
+      margin: 0;
+      position: fixed;
       top: 50%;
       left: 50%;
       -ms-transform: translate(-50%, -50%);
@@ -225,7 +219,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
         <div class="post">
           <div class="text">Thanks for rating!</div>
         </div>
-        <div class="star-widget" style="z-index: 3;">
+        <div class="star-widget" >
           <input type="radio" name="rate"  id="rate-5" value="5">
           <label for="rate-5" class="fas fa-star"></label>
           <input type="radio" name="rate" id="rate-4" value="4">
@@ -250,7 +244,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
 </section>
 
 <div class="efect" >
-  <header id="header" style="background: transparent; position: fixed; width: 100%;">
+  <header id="header" style="background: transparent; position: absolute; width: 100%; margin-top: -1%;">
     <div class="container d-flex align-items-center">
 
       <div class="logo mr-auto">
@@ -259,7 +253,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
         <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
 
-      <nav class="nav-menu d-none d-lg-block" style="position: sticky;top: 0; z-index: 100;">
+      <nav class="nav-menu d-none d-lg-block" >
         <ul >
           <li class="active"><a href="#">Home</a></li>
           <li><a href="profile">Profile</a></li>
@@ -273,10 +267,10 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
   </header><!-- End Header -->
 </div>
 <center>
-    <div class="box" style="position:absolute">
-      <center><h1 class="out block mt-5"></h1></center>
+    <div class="box">
+      <h1 class="out block mt-5"></h1>
       <p id="ques"></p>
-      <button type="button" class="show button" style=""><span>NEXT</span></button>
+      <button type="button" class="show button"><span>NEXT</span></button>
       </div>
     </center>
       <script>
@@ -298,7 +292,7 @@ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-
                     $('.out').html(`
                     <center>
                     <div id="overlayer"></div>
-                      <span class="loader" ">
+                      <span class="loader">
                         <span class="loader-inner"></span>
                       </span>
                     </center>

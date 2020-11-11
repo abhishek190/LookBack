@@ -73,7 +73,7 @@ app.post('/login',(req,res)=>{
                 req.session.user=user;
                 req.session.email=email;
                 req.flash('message',`Welcome ${user.firstName} ${user.lastName}`);
-                res.redirect('/user');
+                res.redirect('/user1');
             })
         }
         
@@ -167,9 +167,9 @@ app.get('/profile',(req,res)=>{
         res.redirect('/');
     }
 })
-app.get('/user',(req,res)=>{
+app.get('/user1',(req,res)=>{
     if(req.session.user){
-        res.render('user');
+        res.render('user1');
     }
     else{
         res.redirect('/');
